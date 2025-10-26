@@ -1,0 +1,11 @@
+C:\Repositories\Kadosh-erp\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Repositories\Kadosh-erp\Domain\bin\Debug\net8.0\Domain.dll
+C:\Repositories\Kadosh-erp\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\Domain.dll
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Repositories\Kadosh-erp\Domain\obj\Debug\net8.0\ref\Domain.dll
