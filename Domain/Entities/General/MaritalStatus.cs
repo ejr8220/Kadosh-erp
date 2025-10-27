@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Tax
+namespace Domain.Entities.General
 {
-    public class IdentificationType : AuditoryEntity
+    public class MaritalStatus : AuditoryEntity
     {
         public string Name { get; set; } = null!;
-        public string Code { get; set; } = null!;
-        public int Maxlength { get; set; }
     }
 }
