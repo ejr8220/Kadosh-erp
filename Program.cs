@@ -1,4 +1,10 @@
-﻿using Application.Validators.General;
+﻿using Application.Dtos.Request.General;
+using Application.Dtos.Response.General;
+using Application.Interfaces;
+using Application.Services.General;
+using Application.Validators.General;
+using Domain.Entities.General;
+using Domain.Interfaces;
 using FluentValidation;
 using Kadosh_erp.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<ICrudService<MaritalStatusRequestDto, MaritalStatusResponseDto>, MaritalStatusService>();
 // 🔧 Validaciones
 builder.Services.AddValidatorsFromAssemblyContaining<ZoneDtoValidator>();
 

@@ -17,7 +17,6 @@ namespace Kadosh_erp.Persistence
             _httpContextAccessor = httpContextAccessor;
         }
 
-        // 🔗 DbSets
         public DbSet<Country> Countries => Set<Country>();
         public DbSet<Province> Provinces => Set<Province>();
         public DbSet<City> Cities => Set<City>();
@@ -26,7 +25,6 @@ namespace Kadosh_erp.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // 🛡️ Filtro global por IsDeleted
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 if (entityType.ClrType.IsSubclassOf(typeof(AuditoryEntity)))
@@ -39,7 +37,6 @@ namespace Kadosh_erp.Persistence
                 }
             }
 
-            // 🧩 Aplica todas las configuraciones Fluent del ensamblado
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
 
