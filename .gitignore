@@ -1,0 +1,35 @@
+# Carpetas comunes a ignorar
+.vs/
+bin/
+obj/
+
+# Ignorar bin y obj en todos los subdirectorios
+**/bin/
+**/obj/
+
+# Ignorar archivos temporales y de compilación
+*.user
+*.suo
+*.cache
+*.log
+*.vspscc
+*.vssscc
+*.dbmdl
+*.pdb
+
+# Ignorar configuraciones locales
+*.local.json
+appsettings.Development.json
+
+# Ignorar paquetes NuGet descargados
+packages/
+.nuget/
+
+# Ignorar archivos de publicación
+publish/
+*.Publish.xml
+
+# Ignorar archivos de Rider, VS Code, etc.
+.idea/
+.vscode/
+*.code-workspace

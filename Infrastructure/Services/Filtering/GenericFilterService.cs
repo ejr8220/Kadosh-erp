@@ -9,7 +9,7 @@ using Domain.Common.Enums;
 
 namespace Application.Services
 {
-    internal class GenericFilterService : IGenericFilterService
+    public class GenericFilterService : IGenericFilterService
 {
     private readonly AppDbContext _context;
 

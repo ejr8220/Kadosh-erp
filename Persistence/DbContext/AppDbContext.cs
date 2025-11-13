@@ -2,7 +2,6 @@
 using Domain.Entities.General;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
 namespace Kadosh_erp.Persistence
@@ -17,7 +16,6 @@ namespace Kadosh_erp.Persistence
             _httpContextAccessor = httpContextAccessor;
         }
 
-        // 🔗 DbSets
         public DbSet<Country> Countries => Set<Country>();
         public DbSet<Province> Provinces => Set<Province>();
         public DbSet<City> Cities => Set<City>();
@@ -26,21 +24,28 @@ namespace Kadosh_erp.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // 🛡️ Filtro global por IsDeleted
+            var auditoryBaseType = typeof(AuditoryEntity);
+
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
-                if (entityType.ClrType.IsSubclassOf(typeof(AuditoryEntity)))
-                {
-                    var parameter = Expression.Parameter(entityType.ClrType, "e");
-                    var isDeletedProp = Expression.Property(parameter, nameof(AuditoryEntity.IsDeleted));
-                    var condition = Expression.Equal(isDeletedProp, Expression.Constant(false));
-                    var lambda = Expression.Lambda(condition, parameter);
-                    modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
-                }
+                var clrType = entityType.ClrType;
+
+                if (!auditoryBaseType.IsAssignableFrom(clrType) || clrType == auditoryBaseType)
+                    continue;
+
+                var method = typeof(AppDbContext)
+                    .GetMethod(nameof(SetQueryFilter), System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)
+                    ?.MakeGenericMethod(clrType);
+
+                method?.Invoke(null, new object[] { modelBuilder });
             }
 
-            // 🧩 Aplica todas las configuraciones Fluent del ensamblado
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        }
+
+        private static void SetQueryFilter<TEntity>(ModelBuilder builder) where TEntity : AuditoryEntity
+        {
+            builder.Entity<TEntity>().HasQueryFilter(e => !e.IsDeleted);
         }
 
         public override int SaveChanges()
