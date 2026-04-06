@@ -1,0 +1,49 @@
+<section class="auth-shell">
+  <div class="auth-panel brand-panel">
+    <div class="brand-mark">K</div>
+    <h1>Kadosh ERP</h1>
+    <p>Gestion moderna, simple y enfocada en velocidad operativa.</p>
+
+    <ul>
+      <li>Panel administrativo centralizado</li>
+      <li>Maestros con Syncfusion Grid</li>
+      <li>Cambio de empresa en tiempo real</li>
+    </ul>
+  </div>
+
+  <mat-card class="auth-panel form-panel">
+    <mat-card-header>
+      <mat-card-title>Iniciar sesion</mat-card-title>
+      <mat-card-subtitle>Accede con tu usuario corporativo</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" class="auth-form" (ngSubmit)="login()">
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="user" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contrasena</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+            <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        @if (errorMessage) {
+          <div class="error-message">{{ errorMessage }}</div>
+        }
+
+        <button mat-flat-button color="primary" type="submit" class="login-btn" [disabled]="loading">
+          {{ loading ? 'Validando...' : 'Entrar' }}
+        </button>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a mat-button routerLink="/forgot-password">Olvide mi contrasena</a>
+    </mat-card-actions>
+  </mat-card>
+</section>

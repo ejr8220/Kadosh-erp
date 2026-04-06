@@ -1,0 +1,230 @@
+.company-form {
+  display: block;
+}
+
+:host {
+  --company-field-height: 36px;
+  --company-field-v-padding: 7px;
+}
+
+/* Unifica altura entre textbox (Syncfusion), dropdown (Syncfusion) e input-search (Material). */
+:host ::ng-deep .company-form .field input[ejs-textbox],
+:host ::ng-deep .company-form .field input[ejs-textbox].e-input {
+  height: var(--company-field-height) !important;
+  min-height: var(--company-field-height) !important;
+  line-height: var(--company-field-height) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+:host ::ng-deep .company-form .field ejs-dropdownlist .e-input-group.e-control-wrapper,
+:host ::ng-deep .company-form .field ejs-dropdownlist .e-input-group {
+  height: var(--company-field-height) !important;
+  min-height: var(--company-field-height) !important;
+}
+
+:host ::ng-deep .company-form .field ejs-dropdownlist .e-input-group input.e-input {
+  height: 100% !important;
+  line-height: var(--company-field-height) !important;
+}
+
+:host ::ng-deep .company-form .field ejs-dropdownlist .e-input-group-icon,
+:host ::ng-deep .company-form .field ejs-dropdownlist .e-ddl-icon {
+  height: var(--company-field-height) !important;
+  min-height: var(--company-field-height) !important;
+  width: var(--company-field-height) !important;
+}
+
+:host ::ng-deep .company-form .field app-input-search-shared .mdc-text-field--outlined {
+  height: var(--company-field-height) !important;
+}
+
+:host ::ng-deep .company-form .field app-input-search-shared .mat-mdc-form-field-infix {
+  min-height: 0 !important;
+  padding-top: var(--company-field-v-padding) !important;
+  padding-bottom: var(--company-field-v-padding) !important;
+}
+
+.general-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr) minmax(260px, 320px);
+  grid-auto-rows: min-content;
+  gap: 1rem;
+  align-items: start;
+  padding-top: 0.5rem;
+}
+
+.field-row {
+  grid-column: 1 / 3;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.two-cols {
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+}
+
+.three-cols {
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.input-with-button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.validate-btn {
+  white-space: nowrap;
+  min-width: 88px;
+  height: var(--company-field-height);
+  padding: 0 0.8rem;
+  border: 1px solid #b7c5dc;
+  border-radius: 6px;
+  background: #f7faff;
+  color: #1e293b;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.icon-btn {
+  min-width: var(--company-field-height);
+  width: var(--company-field-height);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.icon-btn .btn-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.icon-btn.is-valid {
+  border-color: #1f9d55;
+  background: #e9f9ef;
+  color: #1f9d55;
+}
+
+.icon-btn.is-invalid {
+  border-color: #d64545;
+  background: #feecec;
+  color: #d64545;
+}
+
+.validate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #425066;
+}
+
+.block-card {
+  grid-column: 1 / 3;
+  border: 1px solid #e0e5ed;
+  border-radius: 10px;
+  padding: 0.85rem;
+  background: #fcfdff;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.block-card h3,
+.logo-box h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.logo-box {
+  grid-column: 3 / 4;
+  grid-row: 1 / 7;
+  border: 1px dashed #9fb4d7;
+  border-radius: 12px;
+  background: #f8fbff;
+  padding: 0.85rem;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 0.8rem;
+}
+
+.logo-preview {
+  border: 1px solid #d6e0ef;
+  border-radius: 10px;
+  background: #ffffff;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #66768f;
+}
+
+.logo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-help {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #55657f;
+}
+
+.branches-grid-wrapper {
+  height: 58vh;
+  min-height: 380px;
+}
+
+.tab-empty {
+  border: 1px dashed #b8c6dc;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #f8fafd;
+  color: #43526a;
+}
+
+.branches-draft-panel {
+  display: grid;
+  gap: 0.9rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+  .general-layout {
+    grid-template-columns: minmax(240px, 1fr) minmax(240px, 1fr);
+  }
+
+  .logo-box {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .two-cols,
+  .three-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .field-row,
+  .block-card,
+  .logo-box {
+    grid-column: 1 / -1;
+  }
+}

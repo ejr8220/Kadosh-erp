@@ -1,0 +1,14 @@
+<section class="entity-page">
+  <h2>{{ title }}</h2>
+
+  <div class="grid-wrapper">
+    <app-grid-shared
+      [columns]="columns"
+      [newUrl]="'/admin/general/parameters/new'"
+      [editUrl]="'/admin/general/parameters/edit'"
+      [gridUrl]="'/api/general/parameters'"
+      [titleDelete]="'Eliminar parametro'"
+      [selection]="'single'"
+    ></app-grid-shared>
+  </div>
+</section>

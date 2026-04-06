@@ -1,0 +1,39 @@
+<div class="input-search-shared">
+  <mat-form-field appearance="outline" class="full-width">
+    <input matInput [placeholder]="placeholder" [value]="displayValue" [disabled]="disabled" readonly />
+    <button mat-icon-button matSuffix [disabled]="disabled" (click)="onActionButtonClick()">
+      <mat-icon>{{ displayValue ? 'close' : 'search' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <ejs-dialog
+    [visible]="opened"
+    [isModal]="true"
+    [showCloseIcon]="false"
+    [header]="title"
+    [width]="'80vw'"
+    [height]="'auto'"
+    [footerTemplate]="footerTemplate"
+  >
+    <div class="dialog-body">
+      <app-grid-shared
+        [columns]="columns"
+        [gridUrl]="gridUrl"
+        [apiBaseUrl]="apiBaseUrl"
+        [useFilterPost]="useFilterPost"
+        [parameters]="parameters"
+        [selection]="selection"
+        [isSearchMode]="true"
+        (selectionChange)="onSelectionChange($event)"
+        (closeSearchMode)="closeModal()"
+      ></app-grid-shared>
+    </div>
+
+    <ng-template #footerTemplate>
+      <div class="dialog-footer">
+        <button ejs-button cssClass="e-primary" iconCss="e-icons e-check" title="OK" (click)="acceptSelection()"></button>
+        <button ejs-button cssClass="e-flat" iconCss="e-icons e-close" title="Cancelar" (click)="closeModal()"></button>
+      </div>
+    </ng-template>
+  </ejs-dialog>
+</div>

@@ -1,0 +1,111 @@
+<section class="grid-inline">
+  @if (errorMessage) {
+    <div class="inline-error">{{ errorMessage }}</div>
+  }
+
+  <ejs-grid
+    [class.inline-add-disabled]="!canAdd"
+    [dataSource]="data"
+    [allowPaging]="true"
+    [allowSorting]="true"
+    [allowFiltering]="true"
+    [toolbar]="toolbar"
+    [pageSettings]="{ pageSize: 10, pageSizes: [10, 20, 50] }"
+    (toolbarClick)="onToolbarClick($event)"
+    height="100%"
+  >
+    <e-columns>
+      <e-column field="id" headerText="Id" width="90" textAlign="Left"></e-column>
+
+      <e-column field="code" headerText="Codigo" width="140" textAlign="Left">
+        <ng-template #template let-row>
+          @if (row.isEditing) {
+            <input class="inline-input" [value]="row.code" (input)="onUpdateField(row.id, 'code', $event)" placeholder="Codigo" />
+          } @else {
+            <span>{{ row.code }}</span>
+          }
+        </ng-template>
+      </e-column>
+
+      <e-column field="name" headerText="Nombre" width="220" textAlign="Left">
+        <ng-template #template let-row>
+          @if (row.isEditing) {
+            <input class="inline-input" [value]="row.name" (input)="onUpdateField(row.id, 'name', $event)" placeholder="Nombre" />
+          } @else {
+            <span>{{ row.name }}</span>
+          }
+        </ng-template>
+      </e-column>
+
+      <e-column field="email" headerText="Email" width="240" textAlign="Left">
+        <ng-template #template let-row>
+          @if (row.isEditing) {
+            <input class="inline-input" [value]="row.email" (input)="onUpdateField(row.id, 'email', $event)" placeholder="Email" />
+          } @else {
+            <span>{{ row.email }}</span>
+          }
+        </ng-template>
+      </e-column>
+
+      <e-column field="phone" headerText="Telefono" width="170" textAlign="Left">
+        <ng-template #template let-row>
+          @if (row.isEditing) {
+            <input class="inline-input" [value]="row.phone" (input)="onUpdateField(row.id, 'phone', $event)" placeholder="Telefono" />
+          } @else {
+            <span>{{ row.phone }}</span>
+          }
+        </ng-template>
+      </e-column>
+
+      <e-column field="address" headerText="Direccion" width="240" textAlign="Left">
+        <ng-template #template let-row>
+          @if (row.isEditing) {
+            <input class="inline-input" [value]="row.address" (input)="onUpdateField(row.id, 'address', $event)" placeholder="Direccion" />
+          } @else {
+            <span>{{ row.address }}</span>
+          }
+        </ng-template>
+      </e-column>
+
+      <e-column field="status" headerText="Estado" width="120" textAlign="Left">
+        <ng-template #template let-row>
+          <span>{{ row.status || 'Active' }}</span>
+        </ng-template>
+      </e-column>
+
+      <e-column headerText="Acciones" width="140" [allowFiltering]="false" [allowSorting]="false">
+        <ng-template #template let-row>
+          <div class="actions-cell">
+            @if (row.isEditing) {
+              <button
+                ejs-button
+                cssClass="e-flat e-success e-small"
+                iconCss="e-icons e-save"
+                title="Guardar"
+                (click)="onSaveRow(row)"
+              ></button>
+            } @else {
+              <button
+                ejs-button
+                cssClass="e-flat e-primary e-small"
+                iconCss="e-icons e-edit"
+                title="Editar"
+                [disabled]="hasEditingRow"
+                (click)="onEditRow(row)"
+              ></button>
+
+              <button
+                ejs-button
+                cssClass="e-flat e-danger e-small"
+                iconCss="e-icons e-delete"
+                title="Eliminar"
+                [disabled]="hasEditingRow"
+                (click)="onDeleteRow(row)"
+              ></button>
+            }
+          </div>
+        </ng-template>
+      </e-column>
+    </e-columns>
+  </ejs-grid>
+</section>

@@ -1,0 +1,95 @@
+<section class="layout-shell">
+  <mat-toolbar class="topbar" color="primary">
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="brand">Kadosh-erp</span>
+    <span class="spacer"></span>
+
+    <button mat-stroked-button class="company-btn" (click)="openCompanyDialog()">
+      <mat-icon>flag</mat-icon>
+      {{ session.company()?.name ?? 'Sin empresa' }}
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Cerrar sesion
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="work-area">
+    <mat-sidenav [opened]="sidebarOpen" mode="side" class="app-sidenav">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">K</div>
+        <div>
+          <div class="menu-title">Kadosh ERP</div>
+          <div class="menu-group">Menu</div>
+        </div>
+      </div>
+
+      <nav class="tree-nav">
+        <button mat-button type="button" class="tree-node level-1" (click)="toggleGeneral()">
+          <mat-icon class="expand-icon">{{ generalExpanded ? 'expand_more' : 'chevron_right' }}</mat-icon>
+          <mat-icon>folder</mat-icon>
+          <span>General</span>
+        </button>
+
+        @if (generalExpanded) {
+          <button mat-button type="button" class="tree-node level-2" (click)="toggleMaestros()">
+            <mat-icon class="expand-icon">{{ maestrosExpanded ? 'expand_more' : 'chevron_right' }}</mat-icon>
+            <mat-icon>folder_open</mat-icon>
+            <span>Maestros</span>
+          </button>
+
+          @if (maestrosExpanded) {
+            <a class="tree-leaf level-3" routerLink="/admin/general/parameters" routerLinkActive="active-link">
+              <mat-icon>tune</mat-icon>
+              <span>Parametros</span>
+            </a>
+            <a class="tree-leaf level-3" routerLink="/admin/general/company" routerLinkActive="active-link">
+              <mat-icon>apartment</mat-icon>
+              <span>Empresa</span>
+            </a>
+            <a class="tree-leaf level-3" routerLink="/admin/general/branches" routerLinkActive="active-link">
+              <mat-icon>storefront</mat-icon>
+              <span>Sucursales</span>
+            </a>
+            <a class="tree-leaf level-3" routerLink="/admin/general/countries" routerLinkActive="active-link">
+              <mat-icon>public</mat-icon>
+              <span>Paises</span>
+            </a>
+          }
+        }
+      </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content-shell">
+      <main class="content-area">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <footer class="footer">Kadosh ERP - Material 3 + Syncfusion</footer>
+</section>
+
+<ejs-dialog
+  [visible]="companyDialogOpen"
+  [isModal]="true"
+  [showCloseIcon]="true"
+  [header]="'Seleccionar empresa'"
+  [width]="'420px'"
+  (overlayClick)="closeCompanyDialog()"
+>
+  <app-company-selector-dialog
+    [companies]="session.companies()"
+    (companyChange)="changeCompany($event)"
+  ></app-company-selector-dialog>
+</ejs-dialog>

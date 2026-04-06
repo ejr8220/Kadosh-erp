@@ -1,0 +1,186 @@
+:host {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.layout-shell {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+.work-area {
+  min-height: 0;
+  background: #f8fafc;
+}
+
+.app-sidenav {
+  width: 290px;
+  border-right: 1px solid #1f2937;
+  background: linear-gradient(180deg, #111827 0%, #0b1220 100%);
+  color: #e5e7eb;
+}
+
+.content-shell {
+  min-height: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid #1f2937;
+  color: #ffffff;
+}
+
+.sidebar-logo {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.65rem;
+  background: linear-gradient(140deg, #f59e0b, #ef4444);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.menu-title {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0;
+  color: #ffffff;
+}
+
+.menu-group {
+  padding: 0;
+  color: #ffffff;
+  font-size: 0.78rem;
+}
+
+.tree-nav {
+  display: grid;
+  padding: 0.5rem 0.4rem;
+}
+
+.tree-node,
+.tree-leaf {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 0.45rem;
+  color: #ffffff;
+  text-decoration: none;
+  min-height: 40px;
+  padding: 0 0.55rem;
+}
+
+.tree-node {
+  justify-content: flex-start;
+  text-transform: none;
+}
+
+.tree-leaf {
+  font-size: 0.92rem;
+}
+
+.tree-node:hover,
+.tree-leaf:hover {
+  background: #1f2937;
+}
+
+.level-1 {
+  padding-left: 0.35rem;
+}
+
+.level-2 {
+  margin-top: 0.2rem;
+  padding-left: 1.2rem;
+}
+
+.level-3 {
+  padding-left: 2.15rem;
+}
+
+.expand-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.active-link {
+  background: #1e293b;
+  border-left: 3px solid #60a5fa;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .app-sidenav .mat-mdc-list-item,
+:host ::ng-deep .app-sidenav .mdc-list-item {
+  color: #ffffff;
+}
+
+:host ::ng-deep .app-sidenav a.mat-mdc-list-item,
+:host ::ng-deep .app-sidenav a.mdc-list-item,
+:host ::ng-deep .app-sidenav .mat-mdc-list-item:hover,
+:host ::ng-deep .app-sidenav .mat-mdc-list-item:focus {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .app-sidenav .mdc-list-item__primary-text,
+:host ::ng-deep .app-sidenav .mat-mdc-list-item-unscoped-content,
+:host ::ng-deep .app-sidenav [matListItemTitle] {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .app-sidenav .mat-icon {
+  color: #93c5fd;
+}
+
+:host ::ng-deep .app-sidenav .tree-node .mat-icon,
+:host ::ng-deep .app-sidenav .tree-leaf .mat-icon {
+  color: #93c5fd;
+}
+
+.topbar {
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.brand {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.company-btn {
+  margin-right: 0.5rem;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.content-area {
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.footer {
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-top: 1px solid #1e293b;
+  color: #e2e8f0;
+  background: #0f172a;
+}

@@ -1,0 +1,64 @@
+.form-shared-shell {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.75rem;
+  min-height: 100%;
+}
+
+.form-toolbar {
+  border: 1px solid #d9dde4;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.toolbar-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.toolbar-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.form-body {
+  border: 1px solid #d9dde4;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+  min-height: 0;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #d9dde4;
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  background: #f7f9fc;
+  color: #31425a;
+}
+
+.footer-label {
+  font-weight: 700;
+}
+
+.footer-tooltip {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .toolbar-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-tooltip {
+    white-space: normal;
+  }
+}

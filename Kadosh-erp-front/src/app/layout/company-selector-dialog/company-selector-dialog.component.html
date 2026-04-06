@@ -1,0 +1,7 @@
+<div class="company-list">
+  @for (company of companies; track company.id) {
+    <button mat-stroked-button class="company-item" (click)="selectCompany(company)">
+      {{ company.name }}
+    </button>
+  }
+</div>

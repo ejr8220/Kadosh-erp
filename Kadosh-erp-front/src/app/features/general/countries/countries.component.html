@@ -1,0 +1,15 @@
+<section class="entity-page">
+  <h2>{{ title }}</h2>
+
+  <div class="grid-wrapper">
+    <app-grid-shared
+      [columns]="columns"
+      [newUrl]="'/admin/general/countries/new'"
+      [editUrl]="'/admin/general/countries/edit'"
+      [gridUrl]="'/api/general/country'"
+      [useFilterPost]="true"
+      [titleDelete]="'Eliminar country'"
+      [selection]="'single'"
+    ></app-grid-shared>
+  </div>
+</section>

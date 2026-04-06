@@ -1,0 +1,340 @@
+<app-form-shared
+  [title]="title"
+  [showBack]="true"
+  [showSave]="true"
+  [showPrint]="true"
+  [footerTooltip]="footerTooltip"
+  (back)="onBack()"
+  (save)="onSave()"
+  (print)="onPrint()"
+>
+  <form class="company-form" [formGroup]="form">
+    <ejs-tab>
+      <e-tabitems>
+        <e-tabitem [header]="{ text: 'Datos Generales' }">
+          <ng-template #content>
+            <div class="general-layout">
+              <div class="field-row two-cols">
+                <div class="field">
+                  <label>Tipo de identificacion</label>
+                  <ejs-dropdownlist
+                    formControlName="identificationTypeId"
+                    [dataSource]="identificationTypes"
+                    [fields]="{ text: 'name', value: 'id' }"
+                    [allowFiltering]="true"
+                    [popupHeight]="'260px'"
+                    [placeholder]="'Seleccione tipo de identificacion'"
+                    (focus)="onFieldFocus('Define si la empresa se maneja como RUC o persona natural.')"
+                  ></ejs-dropdownlist>
+                </div>
+
+                <div class="field">
+                  <label>Numero de identificacion</label>
+                  <div class="input-with-button">
+                    <input
+                      ejs-textbox
+                      formControlName="identificationNumber"
+                      placeholder="Ingrese identificacion"
+                      [readonly]="mode === 'edit'"
+                      (focus)="onIdentificationInputFocus('main', 'Ingrese el numero de identificacion principal de la empresa.')"
+                    />
+
+                    @if (mode === 'add') {
+                      <button
+                        type="button"
+                        class="validate-btn icon-btn"
+                        [class.is-valid]="mainValidationState === 'valid'"
+                        [class.is-invalid]="mainValidationState === 'invalid'"
+                        [disabled]="validatingMainIdentification"
+                        title="Validar Identificacion"
+                        aria-label="Validar Identificacion"
+                        (click)="onValidateMainIdentification($event)"
+                      >
+                        @if (validatingMainIdentification) {
+                          <span class="btn-icon">...</span>
+                        } @else if (mainValidationState === 'valid') {
+                          <span class="btn-icon">✓</span>
+                        } @else if (mainValidationState === 'invalid') {
+                          <span class="btn-icon">✕</span>
+                        } @else {
+                          <span class="e-icons e-search btn-icon" aria-hidden="true"></span>
+                        }
+                      </button>
+                    }
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-row two-cols">
+                @if (isRuc) {
+                  <div class="field">
+                    <label>Razon social</label>
+                    <input
+                      ejs-textbox
+                      formControlName="businessName"
+                      placeholder="Ingrese razon social"
+                      (focus)="onFieldFocus('Razon social registrada en documentos legales.')"
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label>Nombre comercial</label>
+                    <input
+                      ejs-textbox
+                      formControlName="tradeName"
+                      placeholder="Ingrese nombre comercial"
+                      (focus)="onFieldFocus('Nombre de uso comercial para mostrarse al publico.')"
+                    />
+                  </div>
+                } @else {
+                  <div class="field">
+                    <label>Nombres</label>
+                    <input
+                      ejs-textbox
+                      formControlName="firstNames"
+                      placeholder="Ingrese nombres"
+                      (focus)="onFieldFocus('Nombres del contribuyente cuando no es RUC.')"
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label>Apellidos</label>
+                    <input
+                      ejs-textbox
+                      formControlName="lastNames"
+                      placeholder="Ingrese apellidos"
+                      (focus)="onFieldFocus('Apellidos del contribuyente cuando no es RUC.')"
+                    />
+                  </div>
+                }
+              </div>
+
+              <div class="block-card">
+                <h3>Geoubicacion</h3>
+
+                <div class="field-row three-cols">
+                  <div class="field">
+                    <label>Pais</label>
+                    <app-input-search-shared
+                      [title]="'Seleccionar pais'"
+                      [placeholder]="'Buscar pais'"
+                      [columns]="countryColumns"
+                      [gridUrl]="'/api/general/country'"
+                      [apiBaseUrl]="apiBaseUrl"
+                      [useFilterPost]="true"
+                      [initialDisplayValue]="form.controls.countryName.value"
+                      [valueShow]="'name'"
+                      (selected)="onCountrySelected($event)"
+                      (clear)="clearCountry()"
+                    ></app-input-search-shared>
+                  </div>
+
+                  <div class="field">
+                    <label>Provincia</label>
+                    <app-input-search-shared
+                      [title]="'Seleccionar provincia'"
+                      [placeholder]="'Buscar provincia'"
+                      [columns]="provinceColumns"
+                      [gridUrl]="'/api/general/province'"
+                      [apiBaseUrl]="apiBaseUrl"
+                      [useFilterPost]="true"
+                      [disabled]="!form.controls.countryId.value"
+                      [parameters]="{ countryId: form.controls.countryId.value }"
+                      [initialDisplayValue]="form.controls.provinceName.value"
+                      [valueShow]="'name'"
+                      (selected)="onProvinceSelected($event)"
+                      (clear)="clearProvince()"
+                    ></app-input-search-shared>
+                  </div>
+
+                  <div class="field">
+                    <label>Ciudad</label>
+                    <app-input-search-shared
+                      [title]="'Seleccionar ciudad'"
+                      [placeholder]="'Buscar ciudad'"
+                      [columns]="cityColumns"
+                      [gridUrl]="'/api/general/city'"
+                      [apiBaseUrl]="apiBaseUrl"
+                      [useFilterPost]="true"
+                      [disabled]="!form.controls.provinceId.value"
+                      [parameters]="{ provinceId: form.controls.provinceId.value }"
+                      [initialDisplayValue]="form.controls.cityName.value"
+                      [valueShow]="'name'"
+                      (selected)="onCitySelected($event)"
+                      (clear)="clearCity()"
+                    ></app-input-search-shared>
+                  </div>
+                </div>
+
+                <div class="field-row two-cols">
+                  <div class="field">
+                    <label>Tipo de empresa</label>
+                    <ejs-dropdownlist
+                      formControlName="companyTypeId"
+                      [dataSource]="companyTypes"
+                      [fields]="{ text: 'name', value: 'id' }"
+                      [allowFiltering]="true"
+                      [popupHeight]="'260px'"
+                      [placeholder]="'Seleccione tipo de empresa'"
+                      (focus)="onFieldFocus('Tipo de empresa segun catalogo de CompanyTypes.')"
+                    ></ejs-dropdownlist>
+                  </div>
+
+                  <div class="field">
+                    <label>Direccion</label>
+                    <input
+                      ejs-textbox
+                      formControlName="address"
+                      placeholder="Ingrese direccion"
+                      (focus)="onFieldFocus('Direccion principal de la empresa.')"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="block-card">
+                <h3>Representantes</h3>
+
+                <div class="field-row two-cols">
+                  <div class="field">
+                    <label>Identificacion representante legal</label>
+                    <div class="input-with-button">
+                      <input
+                        ejs-textbox
+                        formControlName="legalRepresentativeIdentification"
+                        placeholder="Ingrese identificacion"
+                        (focus)="onIdentificationInputFocus('legal', 'Numero de identificacion del representante legal.')"
+                      />
+
+                      <button
+                        type="button"
+                        class="validate-btn icon-btn"
+                        [class.is-valid]="legalValidationState === 'valid'"
+                        [class.is-invalid]="legalValidationState === 'invalid'"
+                        [disabled]="validatingLegalRepresentative"
+                        title="Validar Identificacion"
+                        aria-label="Validar Identificacion"
+                        (click)="onValidateLegalRepresentative($event)"
+                      >
+                        @if (validatingLegalRepresentative) {
+                          <span class="btn-icon">...</span>
+                        } @else if (legalValidationState === 'valid') {
+                          <span class="btn-icon">✓</span>
+                        } @else if (legalValidationState === 'invalid') {
+                          <span class="btn-icon">✕</span>
+                        } @else {
+                          <span class="e-icons e-search btn-icon" aria-hidden="true"></span>
+                        }
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label>Nombre representante legal</label>
+                    <input
+                      ejs-textbox
+                      formControlName="legalRepresentativeName"
+                      placeholder="Ingrese nombre"
+                      (focus)="onFieldFocus('Nombre completo del representante legal.')"
+                    />
+                  </div>
+                </div>
+
+                <div class="field-row two-cols">
+                  <div class="field">
+                    <label>Identificacion contador</label>
+                    <div class="input-with-button">
+                      <input
+                        ejs-textbox
+                        formControlName="accountantIdentification"
+                        placeholder="Ingrese identificacion"
+                        (focus)="onIdentificationInputFocus('accountant', 'Numero de identificacion del contador.')"
+                      />
+
+                      <button
+                        type="button"
+                        class="validate-btn icon-btn"
+                        [class.is-valid]="accountantValidationState === 'valid'"
+                        [class.is-invalid]="accountantValidationState === 'invalid'"
+                        [disabled]="validatingAccountant"
+                        title="Validar Identificacion"
+                        aria-label="Validar Identificacion"
+                        (click)="onValidateAccountant($event)"
+                      >
+                        @if (validatingAccountant) {
+                          <span class="btn-icon">...</span>
+                        } @else if (accountantValidationState === 'valid') {
+                          <span class="btn-icon">✓</span>
+                        } @else if (accountantValidationState === 'invalid') {
+                          <span class="btn-icon">✕</span>
+                        } @else {
+                          <span class="e-icons e-search btn-icon" aria-hidden="true"></span>
+                        }
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label>Nombre contador</label>
+                    <input
+                      ejs-textbox
+                      formControlName="accountantName"
+                      placeholder="Ingrese nombre"
+                      (focus)="onFieldFocus('Nombre completo del contador de la empresa.')"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <aside class="logo-box">
+                <h3>Subir logo</h3>
+
+                <div class="logo-preview">
+                  @if (logoPreview) {
+                    <img [src]="logoPreview" alt="Logo empresa" />
+                  } @else {
+                    <span>Sin imagen</span>
+                  }
+                </div>
+
+                <ejs-uploader
+                  [allowedExtensions]="'.jpg,.jpeg,.png'"
+                  [autoUpload]="false"
+                  [multiple]="false"
+                  [showFileList]="true"
+                  (selected)="onLogoSelected($event)"
+                ></ejs-uploader>
+
+                <p class="logo-help">Solo se permiten formatos PNG o JPG.</p>
+              </aside>
+            </div>
+          </ng-template>
+        </e-tabitem>
+
+        <e-tabitem [header]="{ text: 'Sucursales' }">
+          <ng-template #content>
+            @if (mode === 'add') {
+              <div class="branches-draft-panel">
+                <div class="branches-grid-wrapper">
+                  <app-grid-inline
+                    [rows]="draftBranches"
+                    (rowsChange)="onDraftBranchesChange($event)"
+                  ></app-grid-inline>
+                </div>
+              </div>
+            } @else {
+              <div class="branches-grid-wrapper">
+                <app-grid-inline
+                  [rows]="draftBranches"
+                  (rowsChange)="onDraftBranchesChange($event)"
+                  (rowSaved)="onEditBranchSaved($event)"
+                  (rowDeleted)="onEditBranchDeleted($event)"
+                ></app-grid-inline>
+              </div>
+            }
+          </ng-template>
+        </e-tabitem>
+      </e-tabitems>
+    </ejs-tab>
+  </form>
+</app-form-shared>

@@ -1,0 +1,14 @@
+<section class="entity-page">
+  <h2>{{ title }}</h2>
+
+  <div class="grid-wrapper">
+    <app-grid-shared
+      [columns]="columns"
+      [newUrl]="'/admin/general/branches/new'"
+      [editUrl]="'/admin/general/branches/edit'"
+      [gridUrl]="'/api/general/branches'"
+      [titleDelete]="'Eliminar sucursal'"
+      [selection]="'multiple'"
+    ></app-grid-shared>
+  </div>
+</section>

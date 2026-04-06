@@ -1,0 +1,223 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Repositories\\Kadosh-erp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{93AF39AC-0217-45C8-AA18-C97E78CBDD1A}|Persistence\\Persistence.csproj|c:\\repositories\\kadosh-erp\\persistence\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93AF39AC-0217-45C8-AA18-C97E78CBDD1A}|Persistence\\Persistence.csproj|solutionrelative:persistence\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73DE5F72-6585-49E7-90C9-764F89BB0A96}|Infrastructure\\Infrastructure.csproj|c:\\repositories\\kadosh-erp\\infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73DE5F72-6585-49E7-90C9-764F89BB0A96}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BA326D-1502-4A5A-94D1-4735F6954963}|Domain\\Domain.csproj|c:\\repositories\\kadosh-erp\\domain\\entities\\general\\maritalstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76BA326D-1502-4A5A-94D1-4735F6954963}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\general\\maritalstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|c:\\repositories\\kadosh-erp\\application\\services\\general\\maritalstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|solutionrelative:application\\services\\general\\maritalstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B3912-F86F-429D-A673-FBC3EA8866F7}|Kadosh-erp.csproj|c:\\repositories\\kadosh-erp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B3912-F86F-429D-A673-FBC3EA8866F7}|Kadosh-erp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93AF39AC-0217-45C8-AA18-C97E78CBDD1A}|Persistence\\Persistence.csproj|c:\\repositories\\kadosh-erp\\persistence\\dbcontext\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93AF39AC-0217-45C8-AA18-C97E78CBDD1A}|Persistence\\Persistence.csproj|solutionrelative:persistence\\dbcontext\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B3912-F86F-429D-A673-FBC3EA8866F7}|Kadosh-erp.csproj|c:\\repositories\\kadosh-erp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4D4B3912-F86F-429D-A673-FBC3EA8866F7}|Kadosh-erp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|c:\\repositories\\kadosh-erp\\application\\mappings\\maritalstatusprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|solutionrelative:application\\mappings\\maritalstatusprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B3912-F86F-429D-A673-FBC3EA8866F7}|Kadosh-erp.csproj|c:\\repositories\\kadosh-erp\\kadosh-erp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4D4B3912-F86F-429D-A673-FBC3EA8866F7}|Kadosh-erp.csproj|solutionrelative:kadosh-erp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|c:\\repositories\\kadosh-erp\\application\\interfaces\\icrudservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|solutionrelative:application\\interfaces\\icrudservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|c:\\repositories\\kadosh-erp\\application\\services\\zoneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A50B25B-4063-4264-A28C-9EA01E7B2355}|Application\\Application.csproj|solutionrelative:application\\services\\zoneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93AF39AC-0217-45C8-AA18-C97E78CBDD1A}|Persistence\\Persistence.csproj|c:\\repositories\\kadosh-erp\\persistence\\persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{93AF39AC-0217-45C8-AA18-C97E78CBDD1A}|Persistence\\Persistence.csproj|solutionrelative:persistence\\persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MaritalStatus.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Domain\\Entities\\General\\MaritalStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\General\\MaritalStatus.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Domain\\Entities\\General\\MaritalStatus.cs",
+              "RelativeToolTip": "Domain\\Entities\\General\\MaritalStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T03:33:42.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Infrastructure\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Infrastructure\\Repositories\\Repository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T03:21:40.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Persistence\\DbContext\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Persistence\\DbContext\\AppDbContext.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Persistence\\DbContext\\AppDbContext.cs",
+              "RelativeToolTip": "Persistence\\DbContext\\AppDbContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA9wF8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T03:05:31.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Persistence\\DbContext\\AppDbContextFactory.cs",
+              "RelativeDocumentMoniker": "Persistence\\DbContext\\AppDbContextFactory.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Persistence\\DbContext\\AppDbContextFactory.cs",
+              "RelativeToolTip": "Persistence\\DbContext\\AppDbContextFactory.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAUwCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T03:03:53.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MaritalStatusProfile.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Application\\Mappings\\MaritalStatusProfile.cs",
+              "RelativeDocumentMoniker": "Application\\Mappings\\MaritalStatusProfile.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Application\\Mappings\\MaritalStatusProfile.cs",
+              "RelativeToolTip": "Application\\Mappings\\MaritalStatusProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T02:53:09.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MaritalStatusService.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Application\\Services\\General\\MaritalStatusService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\General\\MaritalStatusService.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Application\\Services\\General\\MaritalStatusService.cs",
+              "RelativeToolTip": "Application\\Services\\General\\MaritalStatusService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAADgvzMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T11:06:13.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Kadosh-erp.csproj",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Kadosh-erp.csproj",
+              "RelativeDocumentMoniker": "Kadosh-erp.csproj",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Kadosh-erp.csproj",
+              "RelativeToolTip": "Kadosh-erp.csproj",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-31T11:03:51.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T11:02:01.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ZoneService.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Application\\Services\\ZoneService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\ZoneService.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Application\\Services\\ZoneService.cs",
+              "RelativeToolTip": "Application\\Services\\ZoneService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T03:12:52.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ICrudService.cs",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Application\\Interfaces\\ICrudService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\ICrudService.cs",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Application\\Interfaces\\ICrudService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\ICrudService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T03:12:35.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Persistence.csproj",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\Persistence\\Persistence.csproj",
+              "RelativeDocumentMoniker": "Persistence\\Persistence.csproj",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\Persistence\\Persistence.csproj",
+              "RelativeToolTip": "Persistence\\Persistence.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-31T01:46:10.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Repositories\\Kadosh-erp\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Repositories\\Kadosh-erp\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-31T01:20:41.262Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

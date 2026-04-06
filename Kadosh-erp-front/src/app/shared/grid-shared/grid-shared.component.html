@@ -1,0 +1,129 @@
+<section [class.search-mode]="isSearchMode" class="grid-shared">
+  <ejs-grid
+    #grid
+    [dataSource]="data"
+    [allowExcelExport]="true"
+    [allowPaging]="true"
+    [allowSorting]="true"
+    [allowFiltering]="true"
+    [selectionSettings]="{ type: (isSearchMode && selection !== 'multiple') || selection === 'single' ? 'Single' : 'Multiple', checkboxOnly: !isSearchMode }"
+    [filterSettings]="isSearchMode ? { type: 'FilterBar', mode: 'Immediate', immediateModeDelay: 0 } : { type: 'Menu' }"
+    [toolbar]="isSearchMode ? null : [
+      { id: 'add-new', prefixIcon: 'e-icons e-add', text: '', tooltipText: 'Agregar nuevo' },
+      { id: 'refresh-grid', prefixIcon: 'e-icons e-refresh', text: '', tooltipText: 'Refrescar' },
+      { id: 'Grid_excelexport', prefixIcon: 'e-icons e-excelexport', text: '', tooltipText: 'Exportar a Excel' }
+    ]"
+    [pageSettings]="{ pageSize: 10, pageSizes: [10, 20, 50] }"
+    (toolbarClick)="onToolbarClick($event)"
+    (rowSelected)="onRowSelected()"
+    (rowDeselected)="onRowDeselected()"
+    (recordDoubleClick)="onRowDoubleClick($event.rowData)"
+    [height]="isSearchMode ? 'auto' : '100%'"
+  >
+    <e-columns>
+      <e-column
+        type="checkbox"
+        [width]="isSearchMode ? 14 : 60"
+        [minWidth]="isSearchMode ? 14 : 60"
+        [maxWidth]="isSearchMode ? 14 : 60"
+        [allowFiltering]="false"
+        [allowSorting]="false"
+      ></e-column>
+
+      @for (col of columns; track col.field) {
+        @if (isStatusColumn(col.field)) {
+          <e-column
+            [field]="col.field"
+            [headerText]="col.headerText"
+            [width]="col.width ?? 160"
+            [textAlign]="col.textAlign ?? 'Left'"
+            [visible]="!col.hidden"
+          >
+            <ng-template #template let-row>
+              <span class="status-badge" [ngClass]="getStatusClass(getStatusValue(row, col.field))">
+                {{ formatStatus(getStatusValue(row, col.field)) }}
+              </span>
+            </ng-template>
+          </e-column>
+        } @else if (isContactFormsColumn(col.field)) {
+          <e-column
+            [field]="col.field"
+            [headerText]="col.headerText"
+            [width]="col.width ?? 260"
+            [textAlign]="col.textAlign ?? 'Left'"
+            [visible]="!col.hidden"
+          >
+            <ng-template #template let-row>
+              <div class="contact-cell">
+                @if (hasExtraContactForms(row)) {
+                  <button
+                    type="button"
+                    class="contact-toggle"
+                    (click)="toggleContactForms(row, $event)"
+                    [attr.aria-expanded]="isContactFormsExpanded(row)"
+                  >
+                    {{ isContactFormsExpanded(row) ? '▾' : '▸' }}
+                  </button>
+                } @else {
+                  <span class="contact-toggle-placeholder"></span>
+                }
+
+                <div class="contact-content">
+                  <div class="contact-line">
+                    <strong>Telefono:</strong>&nbsp;{{ getPhoneContact(row) || '-' }}
+                  </div>
+
+                  @if (isContactFormsExpanded(row)) {
+                    @for (contact of getSecondaryContactForms(row); track trackContact(contact, $index)) {
+                      <div class="contact-line contact-secondary">
+                        <strong>{{ contact.name }}:</strong>&nbsp;{{ contact.value }}
+                      </div>
+                    }
+                  }
+                </div>
+              </div>
+            </ng-template>
+          </e-column>
+        } @else {
+          <e-column
+            [field]="col.field"
+            [headerText]="col.headerText"
+            [width]="col.width ?? 160"
+            [textAlign]="col.textAlign ?? 'Left'"
+            [visible]="!col.hidden"
+            [filter]="isSearchMode ? { operator: 'contains' } : undefined"
+            [valueAccessor]="valueAccessor"
+          ></e-column>
+        }
+      }
+
+      @if (!isSearchMode) {
+        <e-column headerText="Acciones" width="130" [allowFiltering]="false" [allowSorting]="false">
+          <ng-template #template let-row>
+            <div class="actions-cell">
+              <button ejs-button cssClass="e-flat e-primary" iconCss="e-icons e-edit" title="Editar" (click)="onEdit(row)"></button>
+              <button ejs-button cssClass="e-flat e-danger" iconCss="e-icons e-delete" title="Eliminar" (click)="askDelete(row)"></button>
+            </div>
+          </ng-template>
+        </e-column>
+      }
+    </e-columns>
+  </ejs-grid>
+
+  <ejs-dialog
+    [visible]="showDeleteDialog"
+    [header]="titleDelete"
+    [isModal]="true"
+    [showCloseIcon]="false"
+    [width]="'380px'"
+  >
+    <p>Esta seguro de eliminar el registro?</p>
+
+    <ng-template #footerTemplate>
+      <div class="delete-footer">
+        <button ejs-button cssClass="e-primary" (click)="confirmDelete()">Si</button>
+        <button ejs-button cssClass="e-flat" (click)="closeDeleteDialog()">No</button>
+      </div>
+    </ng-template>
+  </ejs-dialog>
+</section>

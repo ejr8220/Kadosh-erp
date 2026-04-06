@@ -1,0 +1,38 @@
+<section class="form-shared-shell">
+  <header class="form-toolbar">
+    <ejs-toolbar>
+      <e-items>
+        <e-item type="Input" cssClass="toolbar-title-item">
+          <ng-template #template>
+            <h2 class="toolbar-title">{{ title }}</h2>
+          </ng-template>
+        </e-item>
+        <e-item type="Separator"></e-item>
+        <e-item align="Right" type="Input" cssClass="toolbar-actions-item">
+          <ng-template #template>
+            <div class="toolbar-actions">
+              @if (showBack) {
+                <button ejs-button cssClass="e-flat" iconCss="e-icons e-arrow-left" (click)="onBack()">Regresar</button>
+              }
+              @if (showSave) {
+                <button ejs-button cssClass="e-primary" iconCss="e-icons e-save" (click)="onSave()">Grabar</button>
+              }
+              @if (showPrint) {
+                <button ejs-button cssClass="e-flat" iconCss="e-icons e-print" (click)="onPrint()">Imprimir</button>
+              }
+            </div>
+          </ng-template>
+        </e-item>
+      </e-items>
+    </ejs-toolbar>
+  </header>
+
+  <div class="form-body">
+    <ng-content></ng-content>
+  </div>
+
+  <footer class="form-footer" [title]="footerTooltip">
+    <span class="footer-label">Ayuda:</span>
+    <span class="footer-tooltip">{{ footerTooltip }}</span>
+  </footer>
+</section>

@@ -1,0 +1,92 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+@import '@syncfusion/ej2-base/styles/tailwind3.css';
+@import '@syncfusion/ej2-buttons/styles/tailwind3.css';
+@import '@syncfusion/ej2-popups/styles/tailwind3.css';
+@import '@syncfusion/ej2-inputs/styles/tailwind3.css';
+@import '@syncfusion/ej2-dropdowns/styles/tailwind3.css';
+@import '@syncfusion/ej2-navigations/styles/tailwind3.css';
+@import '@syncfusion/ej2-grids/styles/tailwind3.css';
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	overflow: hidden;
+}
+
+app-root {
+	display: block;
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.e-ddl.e-input-group .e-input-group-icon.e-ddl-icon {
+	order: 2;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+/* Altura uniforme — Syncfusion textbox y dropdown */
+input.e-input {
+	height: 36px !important;
+	min-height: 36px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	line-height: 36px !important;
+}
+
+.e-input-group,
+.e-input-group.e-control-wrapper {
+	height: 36px !important;
+	min-height: 36px !important;
+}
+
+.e-input-group input.e-input {
+	height: 100% !important;
+}
+
+.e-input-group .e-input-group-icon,
+.e-input-group .e-ddl-icon {
+	height: 36px !important;
+	min-height: 36px !important;
+	width: 36px !important;
+}
+
+/* Altura uniforme — Angular Material (input-search-shared) */
+.input-search-shared {
+	--mdc-outlined-text-field-container-height: 36px;
+	--mat-form-field-container-height: 36px;
+	--mat-form-field-container-vertical-padding: 7px;
+}
+
+.input-search-shared .mdc-text-field--outlined {
+	height: 36px !important;
+}
+
+.input-search-shared .mat-mdc-form-field-infix {
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
+	min-height: 0 !important;
+}
+
+/* Dialog search mode layout */
+.input-search-shared .e-dialog {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-search-shared .e-dialog-content {
+	flex: 1;
+	overflow-y: auto;
+	min-height: 0;
+}
+
+.input-search-shared .dialog-body {
+	height: 100%;
+	overflow: hidden;
+}
+
